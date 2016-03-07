@@ -1,0 +1,13 @@
+Loan number,Product Description,Type,Census Tract,Income Level,State,County,State FIPS,County FIPS,Purpose,Property Type,FICO,Application Date
+1,FHA 30-Year Fixed,FHA,upper,low,North Carolina,WAKE,37,183,Refinance - Equity Takeout,Single Family Residence,710,10/29/2015
+2,FHA 30-Year Fixed,FHA,mod,mod,Tennessee,KNOX,47,93,Purchase,Single Family Residence,813,1/4/2016
+3,FHA 234(c) Condo Unit 30-Year Fixed,FHA,upper,low,North Carolina,WAKE,37,183,Investment,Condominium,675,12/28/2015
+4,FHA 30-Year Fixed,FHA,mid,mod,Tennessee,DAVIDSON,47,37,Purchase,Single Family Residence,662,12/21/2015
+5,Fannie Mae 30-Year Fixed,Fannie,upper,mod,Tennessee,HAMILTON,47,65,Purchase,Single Family Residence,806,1/7/2016
+6,Fannie Mae 25-Year Fixed,Fannie,mid,mod,Tennessee,DAVIDSON,47,37,Refinance - Equity Takeout,Planned unit development,626,12/4/2015
+7,FHA 15-Year Fixed,FHA,mod,upper,Tennessee,WILSON,47,189,Refinance - Equity Takeout,Single Family Residence,626,12/2/2015
+8,Freddie Mac 30-Year Fixed,Freddie,mod,upper,Tennessee,DAVIDSON,47,37,Refinance - Equity Takeout,Planned unit development,673,12/10/2015
+9,Fannie Mae 30-Year Fixed,Fannie,mid,low,Tennessee,DAVIDSON,47,37,Purchase,Single Family Residence,631,11/19/2015
+10,FHA 30-Year Fixed,FHA,mod,mod,Tennessee,KNOX,47,93,Second Home,Single Family Residence,673,1/4/2016
+11,VA  30-Year Fixed,VA,upper,low,Tennessee,RUTHERFORD,47,149,Purchase,Single Family Residence,683,12/29/2015
+12,Fannie Mae 30-Year Fixed,Rural,upper,mod,Tennessee,WILSON,47,189,Refinance - Equity Takeout,Single Family Residence,750,12/10/2015

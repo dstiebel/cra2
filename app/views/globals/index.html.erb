@@ -1,0 +1,230 @@
+<div class="container">
+	
+		<br>
+		<h3 class="center-text">Please define your query</h3>
+		<br>
+
+		<% if params["error"] %>
+			<div class="alert alert-danger" role="alert">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span class="sr-only">Error:</span>
+				<% if params["error"].to_i == 1 %>
+					Term is requerd
+				<% elsif params["error"].to_i  == 2 %>
+					Class is requerd
+				<% elsif params["error"].to_i  == 3 %>
+					type_product is requerd
+				<% end %>
+			</div>
+			<br>
+		<% end %>
+		<div class="col-md-12">
+			<div class="row">
+
+				<%= form_tag(result_path, method: "post") do %>
+					<div class="col-md-12">
+						<b>Type: &nbsp;&nbsp;&nbsp;&nbsp;</b>
+						
+					  <label>
+					    <input type="checkbox" name="type_product[]" id="optionsRadios1" value="Freddie" >
+					    Freddie
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="type_product[]" id="optionsRadios2" value="Fannie">
+					    Fannie
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="type_product[]" id="optionsRadios2" value="FHA">
+					    FHA
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="type_product[]" id="optionsRadios2" value="VA">
+					    VA
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="type_product[]" id="optionsRadios2" value="Rural">
+					    Rural
+					  </label>
+					</div>
+
+					<div class="col-md-12">
+						<b>purpose : &nbsp;&nbsp;&nbsp;&nbsp;</b>
+						
+					  <label>
+					    <input type="checkbox" name="purpose[]" id="optionsRadios1" value="Purchase" >
+					    Purchase
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="purpose[]" id="optionsRadios2" value="Refinance">
+					    Refinance
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="purpose[]" id="optionsRadios2" value="Second home">
+					    Second home
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="purpose[]" id="optionsRadios2" value="Investment">
+					    Investment
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="purpose[]" id="optionsRadios2" value="Rural">
+					    Rural
+					  </label>
+					</div>
+
+					<div class="col-md-12">
+						<b>Census Tract : &nbsp;&nbsp;&nbsp;&nbsp;</b>
+						
+					  <label>
+					    <input type="checkbox" name="census_tract[]" id="optionsRadios1" value="low" >
+					    low
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="census_tract[]" id="optionsRadios2" value="mid">
+					    mid
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="census_tract[]" id="optionsRadios2" value="mod">
+					    mod
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="census_tract[]" id="optionsRadios2" value="upper">
+					    upper
+					  </label>
+						
+					</div>
+
+					<div class="col-md-12">
+						<b>Income Level : &nbsp;&nbsp;&nbsp;&nbsp;</b>
+						
+					  <label>
+					    <input type="checkbox" name="income_level[]" id="optionsRadios1" value="low" >
+					    low
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="income_level[]" id="optionsRadios2" value="mid">
+					    mid
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="income_level[]" id="optionsRadios2" value="mod">
+					    mod
+					  </label>
+						&nbsp;
+					  <label>
+					    <input type="checkbox" name="income_level[]" id="optionsRadios2" value="upper">
+					    upper
+					  </label>
+						
+					</div>
+
+					<div class="col-md-12" id="state-container">
+						<br>
+						<b>States  : </b>
+						<select name="state[]" id="state" class="width-100p"   multiple="multiple">
+							<% @state_counties.pluck(:state).uniq.each do |state| %>
+								<option value="<%=state%>"><%=state%></option>
+							<% end %> 
+						</select>
+					 
+					</div>
+
+					<div class="col-md-12" id="county-container">
+						<br>
+						<b>Counties   : </b>
+						<select name="county[]" id="county" class="width-100p"  multiple="multiple">
+							<% @state_counties.pluck(:county).uniq.each do |county| %>
+								<option value="<%=county%>"><%=county%></option>
+							<% end %>
+						</select>
+					 
+					</div>
+
+
+					<div class="col-md-12">
+						<br>
+						<b>min FICO score  : </b>
+						<input type="number" name="min_fico" min="300" max="850" class="number-range">
+					</div>
+
+					<div class="col-md-12">
+						<br>
+						<b>max FICO score  :</b> 
+						<input type="number" name="max_fico" min="300" max="850" class="number-range">
+					</div>
+
+					<div class="col-md-12">
+						<br>
+						<input type="submit" value="Search">
+					</div>
+				<% end %>
+			</div>
+		</div>
+
+</div>
+
+<script type="text/javascript">
+	
+	$( document ).ready(function() {
+	    // array
+		$("#state").on("change", function  () {
+	    	var states = [];
+
+			for (var i = $("#state-container .select2-selection__rendered .select2-selection__choice").length - 1; i >= 0; i--) {
+				states.push($("#state-container .select2-selection__rendered .select2-selection__choice")[i].title);
+			};
+
+			console.log(states);
+
+			data = {states: states};
+			$.ajax({
+			  url: "/counties",
+			  type: "POST",
+			  data: data
+			}).done(function(response) {
+				console.log(response);
+				
+				counties = [];
+				countiesToAdd = [];
+				
+				for (var i = 0; i < $("#county-container .select2-selection__rendered .select2-selection__choice").length; i++) {
+					counties.push($("#county-container .select2-selection__rendered .select2-selection__choice")[i].title);
+				};
+
+				console.log(counties);
+
+				$("#county").html("");
+
+				for (var i = 0; i < response.length; i++) {
+					$("#county").append('<option value="'+response[i]+'">'+response[i]+'</option>');
+				};
+
+				var $selectStates = $("#county").select2();
+				
+				for (var i = 0; i < counties.length; i++) {
+					if ($.inArray(counties[i], response)){
+						countiesToAdd.push(counties[i]);
+					}
+				};
+				$selectStates.val(countiesToAdd).trigger("change"); 
+
+			});
+		});
+
+	});
+
+
+	// <li class="select2-selection__choice" title="Yakutat, City and Borough of"><span class="select2-selection__choice__remove" role="presentation">×</span>Yakutat, City and Borough of</li>
+</script>

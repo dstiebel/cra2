@@ -1,0 +1,38 @@
+.width-100p {
+	width: 100%;
+}
+
+
+select {
+	height: 28px;
+}
+
+label {
+	font-weight: 200;
+	cursor: pointer;
+}
+
+.number-range {
+	width: 80px;
+}
+
+.img {
+	width: 150px;
+}
+
+.table {
+  border: 1px solid #000000;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+   border: 1px solid #000000;
+}
+
+.center-text {
+	text-align: center;
+}

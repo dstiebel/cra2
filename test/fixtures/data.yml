@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loan_number: 1
+  product_description: MyText
+  type_product: MyString
+  census_tract: MyString
+  income_level: MyString
+  state: MyString
+  county: MyString
+  state_fips: 1
+  county_fips: 1
+  purpose: MyText
+  property_type: MyText
+  fico: 1
+  application_date: 2016-03-03 21:05:01
+
+two:
+  loan_number: 1
+  product_description: MyText
+  type_product: MyString
+  census_tract: MyString
+  income_level: MyString
+  state: MyString
+  county: MyString
+  state_fips: 1
+  county_fips: 1
+  purpose: MyText
+  property_type: MyText
+  fico: 1
+  application_date: 2016-03-03 21:05:01
