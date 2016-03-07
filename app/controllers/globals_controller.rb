@@ -6,6 +6,12 @@ class GlobalsController < ApplicationController
 		@state_counties = StateCount.all
 	end
 
+	def about
+  	end
+
+  	def contact
+  	end
+
 	def result
 		min_fico = 300
 		max_fico = 850

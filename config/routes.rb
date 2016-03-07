@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'globals#index'
   
    get '/index' => 'globals#index' , as: :index
+   get '/about' => 'globals#about' , as: :about
+   get '/contact' => 'globals#contact' , as: :contact
    get '/result' => 'globals#result_get' , as: :result_get
    post '/result' => 'globals#result' , as: :result
    post '/counties' => 'globals#counties' , as: :counties
